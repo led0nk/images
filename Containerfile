@@ -1,4 +1,4 @@
-FROM ghcr.io/fedora/silverblue:f39
+FROM ghcr.io/ublue-os/silverblue-main:latest
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 
