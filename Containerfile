@@ -16,6 +16,7 @@ RUN rpm-ostree override replace \
 
 RUN rpm-ostree install \
         zsh \
+        eza \
         powerline-fonts \
         gnome-shell-extension-gsconnect \
         nautilus-gsconnect \
@@ -23,7 +24,6 @@ RUN rpm-ostree install \
         podman-docker \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator 
-
 
 RUN rpm-ostree install \
         keepassxc \
