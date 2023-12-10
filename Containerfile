@@ -10,7 +10,8 @@ RUN rpm-ostree override replace \
         gnome-control-center \
         gnome-control-center-filesystem
 
-RUN rpm-ostree install -y \
+RUN rpm-ostree install \
+        keepassxc \
         zsh \
         powerline-fonts \
         gnome-shell-extension-gsconnect \
@@ -19,3 +20,5 @@ RUN rpm-ostree install -y \
         podman-docker \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator
+
+#COPY .zshrc ./
