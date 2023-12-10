@@ -6,6 +6,11 @@ RUN ostree remote add vscode https://packages.microsoft.com/keys/microsoft.asc
 
 COPY etc/yum.repos.d/vscode.repo /etc/yum.repos.d/vscode.repo
 
+RUN rpm-ostree override remove \
+        ublue-os-update-services \
+        firefox \
+        firefox-langpacks
+
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr \
