@@ -1,10 +1,16 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
-#RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
+RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 
 RUN rpm-ostree override replace \
+    --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr \
-    rpm-ostree install -y \
+        mutter \
+        mutter-common \
+        gnome-control-center \
+        gnome-control-center-filesystem
+
+RUN rpm-ostree install -y \
         zsh \
         powerline-fonts \
         gnome-shell-extension-gsconnect \
