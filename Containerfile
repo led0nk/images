@@ -21,4 +21,4 @@ RUN rpm-ostree install \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator
 
-#COPY .zshrc ./
+COPY rpm-ostreed.conf /etc/rpm-ostreed.conf
