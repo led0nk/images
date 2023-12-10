@@ -2,6 +2,10 @@ FROM ghcr.io/ublue-os/silverblue-main:latest
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 
+RUN ostree remote add vscode https://packages.microsoft.com/keys/microsoft.asc
+
+COPY etc/yum.repos.d/vscode.repo /etc/yum.repos.d/vscode.repo
+
 RUN rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr \
@@ -18,9 +22,11 @@ RUN rpm-ostree install \
         goverlay \
         podman-docker \
         gnome-shell-extension-forge \
-        gnome-shell-extension-appindicator
+        gnome-shell-extension-appindicator 
+
 
 RUN rpm-ostree install \
-        keepassxc 
+        keepassxc \
+        code
 
-COPY rpm-ostreed.conf /etc/rpm-ostreed.conf
+COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
