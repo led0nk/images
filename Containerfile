@@ -35,3 +35,9 @@ RUN rpm-ostree install \
         code
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
+
+COPY etc/systemd/system/firstboot.service /etc/systemd/system/firstboot.service
+
+RUN systemctl enable firstboot.service
+
+COPY var/opt/post-install.sh /var/opt/post-install.sh

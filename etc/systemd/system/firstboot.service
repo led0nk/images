@@ -1,0 +1,10 @@
+[Unit]
+Description=First Boot Setup
+ConditionFirstBoot=yes
+
+[Service]
+Type=oneshot
+ExecStart=/var/opt/dotfiles/post-install.sh
+
+[Install]
+WantedBy=multi-user.target
