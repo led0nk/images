@@ -27,4 +27,6 @@ chsh -s /usr/bin/zsh
 zsh
 zplug install
 
+#remove files necessary for post-install-script
 sudo rm -rf /var/opt/dotfiles
+sudo rm -f /etc/systemd/system/firstboot.service
