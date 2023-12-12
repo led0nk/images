@@ -17,6 +17,7 @@ git clone https://github.com/led0nk/images.git $PATH/repo/images
 
 #create systemlinks for dotfiles
 ln -s $PATH/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s $PATH/dotfiles/zsh/.zshenv ~/.zshenv
 ln -s $PATH/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
 ln -s $PATH/dotfiles/gitconfig/.gitconfig ~/.gitconfig
 
