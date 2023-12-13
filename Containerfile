@@ -32,7 +32,9 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install \
         keepassxc \
-        code
+        code \
+        sway \
+        waybar
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
