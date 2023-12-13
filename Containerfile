@@ -34,7 +34,9 @@ RUN rpm-ostree install \
         keepassxc \
         code \
         sway \
-        waybar
+        waybar \
+        greetd \
+        gtkgreet
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
