@@ -36,7 +36,10 @@ RUN rpm-ostree install \
         sway \
         waybar \
         greetd \
-        gtkgreet
+        gtkgreet \
+        rofi \
+        NetworkManager-tui \
+        pavucontrol
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
