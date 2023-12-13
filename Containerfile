@@ -40,7 +40,8 @@ RUN rpm-ostree install \
         rofi \
         NetworkManager-tui \
         pavucontrol \
-        grim
+        grim \
+        restic
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
