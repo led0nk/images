@@ -32,3 +32,6 @@ zplug install
 #remove files necessary for post-install-script
 sudo rm -rf /var/opt/dotfiles
 sudo rm -f /etc/systemd/system/firstboot.service
+
+#generating ssh-key with github alias-mail
+ssh-keygen -t ed25519 -C "10290002+led0nk@users.noreply.github.com"
