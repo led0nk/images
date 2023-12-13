@@ -1,8 +1,9 @@
-#! /usr/bin/bash
+#!/usr/bin/bash
 
 
 #set repository-path
-export PATH=~/git/repo/
+#export PATH=~/git/repo/
+PATH=$PATH:~/git/repo
 
 
 #create directories
