@@ -3,24 +3,32 @@
 
 #set repository-path
 #export PATH=~/git/repo/
-PATH=$PATH:~/git/repo
+PATH=$PATH:~/git/repo/dotfiles
+REPO_PATH=$REPO_PATH:~/git/repo
 
 
 #create directories
-mkdir -p git/repo/{dotfiles,minecraft,images}
+mkdir -p $REPO_PATH/{dotfiles,minecraft,images}
+mkdir -p $HOME/.config/{sway,waybar}
 
 
 #clone git repositories
-git clone https://github.com/led0nk/dotfiles.git $PATH/dotfiles
-git clone https://github.com/led0nk/minecraft.git $PATH/minecraft
-git clone https://github.com/led0nk/images.git $PATH/repo/images
+git clone https://github.com/led0nk/dotfiles.git $REPO_PATH/dotfiles
+git clone https://github.com/led0nk/minecraft.git $REPO_PATH/minecraft
+git clone https://github.com/led0nk/images.git $REPO_PATH/repo/images
 
 
 #create systemlinks for dotfiles
-ln -s $PATH/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s $PATH/dotfiles/zsh/.zshenv ~/.zshenv
-ln -s $PATH/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-ln -s $PATH/dotfiles/gitconfig/.gitconfig ~/.gitconfig
+ln -s $PATH/zsh/.zshrc $HOME/.zshrc
+ln -s $PATH/zsh/.zshenv $HOME/.zshenv
+ln -s $PATH/zsh/.p10k.zsh $HOME/.p10k.zsh
+ln -s $PATH/gitconfig/.gitconfig $HOME/.gitconfig
+ln -s $PATH/.config/sway/config $HOME/.config/sway/config
+ln -s $PATH/.config/waybar/config.jsonc $HOME/.config/waybar/config.jsonc
+ln -s $PATH/.config/waybar/style.css $HOME/.config/waybar/style.css
+
+#copy themefiles for rofi
+cp -r $PATH/.config/themes $HOME/.config/rofi/
 
 
 #install zplug + extensions + change shell to zsh
