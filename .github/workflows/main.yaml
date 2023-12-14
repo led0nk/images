@@ -35,7 +35,7 @@ jobs:
         if: github.event_name != 'pull_request'
         with:
           image: ${{ steps.build_image.outputs.image }}
-          #tags: ${{ steps.build_image.outputs.tags }}
+          tags: ${{ steps.build_image.outputs.tags }}
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_IMAGES }}
@@ -46,10 +46,11 @@ jobs:
         if: github.event_name != 'pull_request'
 
       - name: Sign container image
-        if: github.event_name != 'pull_request'
-        run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}
         env:
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+
+        if: github.event_name != 'pull_request'
+        run: |
+          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
