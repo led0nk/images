@@ -43,7 +43,7 @@ jobs:
             --disable-content-trust
 
       - name: write cosign key to disk
-        run: 'echo "$KEY > cosign.key'
+        run: 'echo "$KEY" > cosign.key'
         shell: bash
         env:
           KEY: $ {{ secrets.COSIGN_PRIVATE_KEY}}
