@@ -28,7 +28,8 @@ RUN rpm-ostree install \
         goverlay \
         podman-docker \
         gnome-shell-extension-forge \
-        gnome-shell-extension-appindicator 
+        gnome-shell-extension-appindicator \
+        golang
 
 RUN rpm-ostree install \
         keepassxc \
