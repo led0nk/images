@@ -41,7 +41,13 @@ jobs:
           password: ${{ secrets.DOCKER_IMAGES }}
           extra-args: |
             --disable-content-trust
- 
+
+      - name: write cosign key to disk
+        run: 'echo "$KEY > cosign.key'
+        shell: bash
+        env:
+          KEY: $ {{ secrets.COSIGN_PRIVATE_KEY}}
+
       - uses: sigstore/cosign-installer@v3.3.0
         if: github.event_name != 'pull_request'
 
@@ -54,4 +60,5 @@ jobs:
 
         if: github.event_name != 'pull_request'
         run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
+          cosign sign -y --key cosign.key ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
+#env://COSIGN_PRIVATE_KEY
