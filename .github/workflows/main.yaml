@@ -50,9 +50,10 @@ jobs:
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets. COSIGN_TOKEN }}
           TAGS: ${{ steps.push.outputs.digest }}
 
         if: github.event_name != 'pull_request'
         run: |
-          cosign sign --upload=false --key --env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
+          cosign sign -y --key --env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
 
