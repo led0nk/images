@@ -12,9 +12,7 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       packages: write
-      id-token: write
 
     steps:
       - name: Checkout code
@@ -51,6 +49,7 @@ jobs:
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
+        id: registry_login
         if: github.event_name != 'pull_request'
         with:
           registry: ghcr.io
@@ -73,8 +72,5 @@ jobs:
 
         if: github.event_name != 'pull_request'
         run: |
-
-          cosign sign -y --key cosign.key ghcr.io/led0nk/images@$TAGS
-
-          #cosign sign -y --key cosign.key ghcr.io/${{ steps.build_image.outputs.image }}@${TAGS}
+          cosign sign -y --key cosign.key ${{ steps.registry_login.outputs.registry }}/${{ steps.build_image.outputs.image }}@${TAGS}
 
