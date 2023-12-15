@@ -12,7 +12,9 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       packages: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -66,9 +68,7 @@ jobs:
       - name: Sign container image
         env:
           COSIGN_EXPERIMENTAL: false
-          #COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-          #GITHUB_TOKEN: ${{ secrets.COSIGN_TOKEN }}
           TAGS: ${{ steps.push.outputs.digest }}
 
         if: github.event_name != 'pull_request'
