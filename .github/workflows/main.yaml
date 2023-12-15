@@ -61,5 +61,8 @@ jobs:
 
         if: github.event_name != 'pull_request'
         run: |
-          cosign sign -y --key ghcr.io/${{ steps.build_image.outputs.image }}@${TAGS}
+
+          cosign sign -y --key ghcr.io/led0nk/images:latest
+
+          #cosign sign -y --key ghcr.io/${{ steps.build_image.outputs.image }}@${TAGS}
 
