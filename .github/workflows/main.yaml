@@ -56,7 +56,7 @@ jobs:
           COSIGN_EXPERIMENTAL: false
           #COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-          GITHUB_TOKEN: ${{ secrets. COSIGN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.COSIGN_TOKEN }}
           TAGS: ${{ steps.push.outputs.digest }}
 
         if: github.event_name != 'pull_request'
