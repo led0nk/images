@@ -33,7 +33,9 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install \
         keepassxc \
-        code \
+        code
+
+RUN rpm-ostree install  \      
         sway \
         waybar \
         greetd \

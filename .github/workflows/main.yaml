@@ -60,5 +60,5 @@ jobs:
 
         if: github.event_name != 'pull_request'
         run: |
-          cosign sign -y --key cosign.key ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
+          cosign sign --key cosign.key ${{ steps.registry_case.outputs.lowercase }}/${{ steps.build_image.outputs.image }}@${TAGS}
 #env://COSIGN_PRIVATE_KEY
