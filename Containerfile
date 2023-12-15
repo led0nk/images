@@ -29,7 +29,8 @@ RUN rpm-ostree install \
         podman-docker \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator \
-        golang
+        golang \
+        speech-dispatcher
 
 RUN rpm-ostree install \
         keepassxc \
@@ -37,6 +38,7 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install  \      
         sway \
+        axel \
         waybar \
         greetd \
         gtkgreet \
