@@ -45,7 +45,8 @@ RUN rpm-ostree install  \
         NetworkManager-tui \
         pavucontrol \
         grim \
-        restic
+        restic \
+        swappy
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
