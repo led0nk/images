@@ -30,7 +30,9 @@ RUN rpm-ostree install \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator \
         golang \
-        nextcloud-client
+        nextcloud-client \
+        pam_yubico \
+        yubikey-personalization-gui
 
 RUN rpm-ostree install \
         keepassxc \
