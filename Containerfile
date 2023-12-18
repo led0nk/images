@@ -29,7 +29,8 @@ RUN rpm-ostree install \
         podman-docker \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator \
-        golang 
+        golang \
+        nextcloud-client
 
 RUN rpm-ostree install \
         keepassxc \
