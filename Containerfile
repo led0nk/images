@@ -32,9 +32,7 @@ RUN rpm-ostree install \
         golang \
         nextcloud-client \
         pam_yubico \
-        yubikey-personalization-gui \
-        yubikey-manager \
-        yubikey-manager-qt
+        yubikey-personalization-gui 
 
 RUN rpm-ostree install \
         keepassxc \
