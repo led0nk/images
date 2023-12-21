@@ -33,7 +33,8 @@ RUN rpm-ostree install \
         nextcloud-client \
         pam_yubico \
         yubikey-personalization-gui \
-        yubikey-manager
+        yubikey-manager \
+        yubikey-manager-qt
 
 RUN rpm-ostree install \
         keepassxc \
