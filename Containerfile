@@ -23,8 +23,6 @@ RUN rpm-ostree install \
         zsh \
         eza \
         powerline-fonts \
-        gnome-shell-extension-gsconnect \
-        nautilus-gsconnect \
         goverlay \
         podman-docker \
         gnome-shell-extension-forge \
