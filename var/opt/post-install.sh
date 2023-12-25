@@ -10,6 +10,7 @@ REPO_PATH=$REPO_PATH:~/git/repo
 #create directories
 mkdir -p $REPO_PATH/{dotfiles,minecraft,images}
 mkdir -p $HOME/.config/{sway,waybar}
+mkdir -p $HOME/backgrounds/
 
 
 #clone git repositories
@@ -27,9 +28,10 @@ ln -s $PATH/.config/sway/config $HOME/.config/sway/config
 ln -s $PATH/.config/waybar/config.jsonc $HOME/.config/waybar/config.jsonc
 ln -s $PATH/.config/waybar/style.css $HOME/.config/waybar/style.css
 
-#copy themefiles for rofi
-cp -r $PATH/.config/themes $HOME/.config/rofi/
 
+#copy themefiles for rofi and background
+cp -r $PATH/.config/themes $HOME/.config/rofi/
+cp -r $PATH/background.png $HOME/backgrounds/background.png
 
 #install zplug + extensions + change shell to zsh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
