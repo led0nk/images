@@ -39,6 +39,10 @@ chsh -s /usr/bin/zsh
 zsh
 zplug install
 
+#link golang variable
+echo export PATH=$PATH:/usr/lib/golang/bin > $HOME/.profile
+
+
 #remove files necessary for post-install-script
 sudo rm -rf /var/opt/dotfiles
 sudo rm -f /etc/systemd/system/firstboot.service
