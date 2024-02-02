@@ -39,6 +39,7 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install  \      
         sway \
+        swaylock \
         axel \
         waybar \
         greetd \
