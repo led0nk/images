@@ -3,14 +3,14 @@
 
 #set repository-path
 #export PATH=~/git/repo/
-PATH=$PATH:~/git/repo/dotfiles
-REPO_PATH=$REPO_PATH:~/git/repo
+export PATH=$PATH:/var/home/$USER/git/repo/dotfiles
+export REPO_PATH=$REPO_PATH:/var/home/$USER/git/repo
 
 
 #create directories
 mkdir -p $REPO_PATH/{dotfiles,minecraft,images}
-mkdir -p $HOME/.config/{sway,waybar}
-mkdir -p $HOME/backgrounds/
+mkdir -p $HOME/.config/{sway,waybar,hypr,rofi,wofi}
+mkdir -p $HOME/Bilder/Wallpaper/
 
 
 #clone git repositories
@@ -27,11 +27,12 @@ ln -s $PATH/gitconfig/.gitconfig $HOME/.gitconfig
 ln -s $PATH/.config/sway/config $HOME/.config/sway/config
 ln -s $PATH/.config/waybar/config.jsonc $HOME/.config/waybar/config.jsonc
 ln -s $PATH/.config/waybar/style.css $HOME/.config/waybar/style.css
-
+ln -s $PATH/.config/hypr/hyprland.conf $HOME/.config/hypr/hyprland.conf
+ln -s $PATH/.config/wofi/style.css $HOME/.config/wofi/style.css
 
 #copy themefiles for rofi and background
 cp -r $PATH/.config/themes $HOME/.config/rofi/
-cp -r $PATH/background.png $HOME/backgrounds/background.png
+cp -r $PATH/background.png $HOME/Bilder/Wallpaper/background.png
 
 #install zplug + extensions + change shell to zsh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh

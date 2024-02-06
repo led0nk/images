@@ -26,6 +26,8 @@ RUN rpm-ostree install \
         powerline-fonts \
         goverlay \
         podman-docker \
+        podman-compose \
+        ripgrep \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator \
         golang \
@@ -39,14 +41,17 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install  \      
         sway \
+        hyprland \
         swaylock \
         axel \
         waybar \
         greetd \
         gtkgreet \
         rofi \
+        wofi \
         NetworkManager-tui \
         pavucontrol \
+        pamixer \
         grim \
         restic \
         swappy
