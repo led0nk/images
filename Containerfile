@@ -37,7 +37,9 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install \
         keepassxc \
-        code
+        code \
+        emacs \
+        nvim
 
 RUN rpm-ostree install  \      
         sway \
