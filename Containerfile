@@ -42,6 +42,7 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install  \      
         sway \
+        wlogout \
         hyprland \
         swaylock \
         axel \
