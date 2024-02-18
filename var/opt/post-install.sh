@@ -4,7 +4,7 @@
 #set repository-path
 #export PATH=~/git/repo/
 export PATH=$PATH:/var/home/$USER/git/repo/dotfiles
-export REPO_PATH=$REPO_PATH:/var/home/$USER/git/repo
+export REPO_PATH=/var/home/$USER/git/repo
 
 
 #create directories
