@@ -10,7 +10,7 @@ export REPO_PATH=$REPO_PATH:/var/home/$USER/git/repo
 #create directories
 mkdir -p $REPO_PATH/{dotfiles,minecraft,images}
 mkdir -p $HOME/.config/{sway,waybar,hypr,rofi,wofi}
-mkdir -p $HOME/Bilder/Wallpaper/
+mkdir -p $HOME/Pictures/Wallpaper/
 
 
 #clone git repositories
@@ -32,7 +32,7 @@ ln -s $PATH/.config/wofi/style.css $HOME/.config/wofi/style.css
 
 #copy themefiles for rofi and background
 cp -r $PATH/.config/themes $HOME/.config/rofi/
-cp -r $PATH/background.png $HOME/Bilder/Wallpaper/background.png
+cp -r $PATH/background.png $HOME/Pictures/Wallpaper/background.png
 
 #install zplug + extensions + change shell to zsh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
