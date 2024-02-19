@@ -38,20 +38,19 @@ RUN rpm-ostree install \
 RUN rpm-ostree install \
         keepassxc \
         code \
-        emacs 
+        neovim 
 
 RUN rpm-ostree install  \      
         sway \
         wlogout \
-        hyprland \
         swaylock \
         axel \
         waybar \
         greetd \
         gtkgreet \
         rofi \
-        wofi \
         NetworkManager-tui \
+        network-manager-applet \
         pavucontrol \
         pamixer \
         grim \
