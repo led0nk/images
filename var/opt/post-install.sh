@@ -2,14 +2,8 @@
 
 #set repository-path
 #export PATH=~/git/repo/
-<<<<<<< HEAD
 export HELP_PATH=/var/home/$USER/git/repo/dotfiles
 export REPO_PATH=/var/home/$USER/git/repo
-=======
-export PATH=$PATH:/var/home/$USER/git/repo/dotfiles
-export REPO_PATH=/var/home/$USER/git/repo
-
->>>>>>> refs/remotes/origin/main
 
 #create directories
 mkdir -p $REPO_PATH/{dotfiles,minecraft,images}
