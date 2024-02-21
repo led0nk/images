@@ -37,7 +37,7 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install \
         keepassxc \
-        code \
+        emacs \
         neovim 
 
 RUN rpm-ostree install  \      
@@ -51,6 +51,7 @@ RUN rpm-ostree install  \
         rofi \
         NetworkManager-tui \
         network-manager-applet \
+        blueman \
         pavucontrol \
         pamixer \
         grim \
