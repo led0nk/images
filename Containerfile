@@ -30,7 +30,6 @@ RUN rpm-ostree install \
         ripgrep \
         gnome-shell-extension-forge \
         gnome-shell-extension-appindicator \
-        golang \
         nextcloud-client \
         pam_yubico \
         yubikey-personalization-gui 
