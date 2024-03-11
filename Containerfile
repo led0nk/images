@@ -36,7 +36,6 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install \
         keepassxc \
-        emacs \
         neovim 
 
 RUN rpm-ostree install  \      
