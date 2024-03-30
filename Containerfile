@@ -54,7 +54,8 @@ RUN rpm-ostree install  \
         pamixer \
         grim \
         restic \
-        swappy
+        swappy \
+        ShellCheck
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
