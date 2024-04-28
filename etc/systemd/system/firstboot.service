@@ -4,7 +4,7 @@ ConditionFirstBoot=yes
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/bash /var/opt/dotfiles/post-install.sh
+ExecStart=/var/opt/post-install.sh
 
 [Install]
 WantedBy=multi-user.target

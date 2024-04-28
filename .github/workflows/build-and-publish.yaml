@@ -1,12 +1,13 @@
+---
 name: Build and Publish Container Image
 
 on:
   push:
     branches:
-        - main
+      - main
+  pull_request:
   schedule:
-    - cron: '0 14 * * *'
-
+    - cron: "0 14 * * *"
 
 jobs:
   build-and-publish:
@@ -30,8 +31,11 @@ jobs:
             ./Containerfile
           image: ghcr.io/led0nk/images
           oci: false
+          build-args: |
+            BASE_IMAGE=quay.io/fedora/fedora-silverblue
+            FEDORA_VERSION=40
+            XDG_RUNTIME_DIR=/run/user/1001
 
-      #workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
       - name: Lowercase Registry
         id: registry_case
         uses: ASzc/change-string-case-action@v6
@@ -63,7 +67,7 @@ jobs:
       - uses: sigstore/cosign-installer@v3.3.0
         if: github.event_name != 'pull_request'
 
-      #Write signing key to disk because --env doesn't work (workaround)
+      # Write signing key to disk because --env doesn't work (workaround)
       - name: write signing key to disk
         run: 'echo "$KEY" > cosign.key'
         shell: bash
@@ -80,4 +84,3 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           cosign sign -y --key cosign.key $REGISTRY/${{ steps.build_image.outputs.image }}@${TAGS}
-
