@@ -6,9 +6,6 @@ export DOT_PATH=$REPO_PATH/dotfiles
 export GITHUB=https://github.com/led0nk
 
 # set some colors
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m'
 
 # check the existing symlinks
 check_symlink() {
@@ -16,12 +13,12 @@ check_symlink() {
 
 	if [ -L "$tested_symlink" ]; then
 		if [ ! -e "$tested_symlink" ]; then
-			echo "${RED}error${NC}: symlink for $tested_symlink is broken"
+			echo "Error: symlink for $tested_symlink is broken"
 		else
-			echo "${GREEN}checked ${NC}$tested_symlink"
+			echo "checked $tested_symlink"
 		fi
 	else
-		echo "${RED}error${NC}: no symlink for $tested_symlink existing"
+		echo "Error: no symlink for $tested_symlink existing"
 	fi
 }
 
@@ -40,15 +37,13 @@ install_git_repo() {
 	target=$2
 
 	echo "cloning $repo into $target"
-	git clone "$GITHUB/$repo" "$target" || abort_func "$repo"
-	echo "cloning of $repo done"
+	git clone "$GITHUB/$repo" "$target" && echo "cloning of $repo done"|| abort_func "$repo"
 }
 
 # function for exiting after error
 abort_func() {
 	errorfunction=$1
-	echo "${RED}Error:${NC} exiting $errorfunction"
-	exit 1
+	echo "Error: exiting $errorfunction" ;
 }
 
 # delete zsh config(from installation)
@@ -59,8 +54,8 @@ mkdir -p "$HOME"/.config/{swappy,sway,waybar,rofi}
 mkdir -p "$HOME"/Pictures/Wallpaper/
 
 # clone GitHub repositories
-install_git_repo dotfiles.git "$DOT_PATH"
-install_git_repo images.git "$REPO_PATH"/images
+install_git_repo dotfiles.git "$DOT_PATH" 
+install_git_repo images.git "$REPO_PATH"/images 
 
 # create symlinks for dotfiles
 symlink "$DOT_PATH"/zsh/.zshrc "$HOME"/.zshrc
