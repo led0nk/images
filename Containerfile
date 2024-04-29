@@ -54,4 +54,4 @@ ARG XDG_RUNTIME_DIR="/run/user/1001"
 RUN mkdir -p /var/run && \
     ln -s ${XDG_RUNTIME_DIR}/podman/podman.sock /var/run/docker.sock
 
-COPY var/opt/post-install.sh /etc/profile.d/post-install.sh
+COPY etc/profile.d/post-install.sh /etc/profile.d/post-install.sh
