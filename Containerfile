@@ -16,6 +16,7 @@ RUN rpm-ostree install \
         podman-docker \
         podman-compose \
         ripgrep \
+        htop \
         neovim  
 
 RUN rpm-ostree install \
