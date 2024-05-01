@@ -17,6 +17,7 @@ RUN rpm-ostree install \
         podman-compose \
         ripgrep \
         htop \
+        fzf \
         neovim  
 
 RUN rpm-ostree install \
@@ -47,6 +48,8 @@ RUN rpm-ostree install  \
 RUN rpm-ostree install \
         restic \
         ShellCheck
+
+RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
