@@ -29,6 +29,7 @@ RUN rpm-ostree install \
 
 RUN rpm-ostree install  \      
         sway \
+        swaybg \
         wlogout \
         swaylock \
         axel \
@@ -45,7 +46,8 @@ RUN rpm-ostree install  \
         SwayNotificationCenter \
         mako \
         dunst \
-        grim 
+        grim \
+        imv 
 
 RUN rpm-ostree install \
         restic \
