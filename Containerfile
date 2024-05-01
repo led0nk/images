@@ -43,6 +43,8 @@ RUN rpm-ostree install  \
         pamixer \
         swappy \
         SwayNotificationCenter \
+        mako \
+        dunst \
         grim 
 
 RUN rpm-ostree install \
