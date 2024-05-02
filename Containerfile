@@ -3,8 +3,6 @@ ARG FEDORA_VERSION="40"
 
 FROM $BASE_IMAGE:$FEDORA_VERSION
 
-COPY etc/yum.repos.d/SwayNotificationCenter.repo /etc/yum.repos.d/SwayNotificationCenter.repo
-
 RUN rpm-ostree override remove \
         firefox \
         firefox-langpacks
@@ -43,8 +41,6 @@ RUN rpm-ostree install  \
         pavucontrol \
         pamixer \
         swappy \
-        SwayNotificationCenter \
-        mako \
         dunst \
         grim \
         imv 
