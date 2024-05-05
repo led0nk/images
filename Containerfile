@@ -19,6 +19,15 @@ RUN rpm-ostree install \
         neovim  
 
 RUN rpm-ostree install \
+        wayland-devel \
+        libX11-devel \
+        libxkbcommon-x11-devel \
+        mesa-libEGL-devel \
+        libXcursor-devel \
+        vulkan-headers
+
+
+RUN rpm-ostree install \
         goverlay \
         nextcloud-client \
         pam_yubico \
