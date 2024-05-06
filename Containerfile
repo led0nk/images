@@ -22,7 +22,7 @@ RUN rpm-ostree install \
         wayland-devel \
         libX11-devel \
         libXi-devel \
-        libXxf86-devel \
+        libXxf86vm-devel \
         libxkbcommon-x11-devel \
         mesa-libEGL-devel \
         mesa-libGL-devel \
