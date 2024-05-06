@@ -24,6 +24,8 @@ RUN rpm-ostree install \
         libxkbcommon-x11-devel \
         mesa-libEGL-devel \
         libXcursor-devel \
+        libXrandr-devel \
+        libXinerama-devel \
         vulkan-headers
 
 
