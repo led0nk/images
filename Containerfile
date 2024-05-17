@@ -16,6 +16,8 @@ RUN rpm-ostree install \
         ripgrep \
         htop \
         fzf \
+        fd-find \
+        tmux \
         neovim  
 
 RUN rpm-ostree install \
