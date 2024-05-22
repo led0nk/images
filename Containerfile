@@ -18,7 +18,8 @@ RUN rpm-ostree install \
         fzf \
         fd-find \
         tmux \
-        neovim  
+        neovim \
+        packit
 
 RUN rpm-ostree install \
         wayland-devel \
