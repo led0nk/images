@@ -22,19 +22,6 @@ RUN rpm-ostree install \
         packit
 
 RUN rpm-ostree install \
-        wayland-devel \
-        libX11-devel \
-        libXi-devel \
-        libXxf86vm-devel \
-        libxkbcommon-x11-devel \
-        mesa-libEGL-devel \
-        mesa-libGL-devel \
-        libXcursor-devel \
-        libXrandr-devel \
-        libXinerama-devel \
-        vulkan-headers
-
-RUN rpm-ostree install \
         goverlay \
         nextcloud-client \
         pam_yubico \
