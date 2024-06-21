@@ -34,7 +34,6 @@ RUN rpm-ostree install \
         libXinerama-devel \
         vulkan-headers
 
-
 RUN rpm-ostree install \
         goverlay \
         nextcloud-client \
