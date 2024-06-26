@@ -33,6 +33,7 @@ RUN rpm-ostree install  \
         swaybg \
         wlogout \
         swaylock \
+        swayidle \
         axel \
         waybar \
         greetd \
