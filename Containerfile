@@ -43,6 +43,7 @@ RUN rpm-ostree install  \
         network-manager-applet \
         blueman \
         pavucontrol \
+        brightnessctl \
         pamixer \
         swappy \
         dunst \
