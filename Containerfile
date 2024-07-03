@@ -19,7 +19,8 @@ RUN rpm-ostree install \
         fd-find \
         tmux \
         neovim \
-        packit
+        packit \
+        steam
 
 RUN rpm-ostree install \
         goverlay \
@@ -53,8 +54,7 @@ RUN rpm-ostree install  \
 RUN rpm-ostree install \
         restic \
         ShellCheck \
-        kdeconnectd \
-        steam 
+        kdeconnectd 
 
 RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
