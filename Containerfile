@@ -54,8 +54,7 @@ RUN rpm-ostree install \
         restic \
         ShellCheck \
         kdeconnectd \
-        steam \
-        steam-devices
+        steam 
 
 RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
