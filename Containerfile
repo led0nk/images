@@ -28,6 +28,10 @@ RUN rpm-ostree install \
         keepassxc \
         yubikey-personalization-gui 
 
+RUN rpm-ostree install \
+        libusb1-devel \
+        golang-github-google-gousb-devel
+
 RUN rpm-ostree install  \      
         sway \
         swaybg \
