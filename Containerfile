@@ -29,8 +29,7 @@ RUN rpm-ostree install \
         yubikey-personalization-gui 
 
 RUN rpm-ostree install \
-        libusb1-devel \
-        golang-github-google-gousb-devel
+        libusb1-devel 
 
 RUN rpm-ostree install  \      
         sway \
