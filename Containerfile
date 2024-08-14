@@ -5,7 +5,8 @@ FROM $BASE_IMAGE:$FEDORA_VERSION
 
 RUN rpm-ostree override remove \
         firefox \
-        firefox-langpacks
+        firefox-langpacks \
+        golang
 
 RUN rpm-ostree install \
         zsh \
