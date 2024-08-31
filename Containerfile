@@ -56,7 +56,9 @@ RUN rpm-ostree install  \
 RUN rpm-ostree install \
         restic \
         ShellCheck \
-        kdeconnectd 
+        kdeconnectd \
+        unrar \
+        unrar-free
 
 RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
