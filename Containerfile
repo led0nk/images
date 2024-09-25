@@ -18,8 +18,7 @@ RUN rpm-ostree install \
         fzf \
         fd-find \
         tmux \
-        neovim \
-        packit 
+        neovim 
 
 RUN rpm-ostree install \
         goverlay \
