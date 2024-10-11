@@ -57,7 +57,8 @@ RUN rpm-ostree install \
         ShellCheck \
         kdeconnectd \
         unrar \
-        unrar-free
+        unrar-free \
+        mcrcon
 
 RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
