@@ -60,7 +60,7 @@ RUN rpm-ostree install \
         unrar-free \
         mcrcon
 
-RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
+#RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
