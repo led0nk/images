@@ -8,6 +8,7 @@ RUN rpm-ostree override remove \
         firefox-langpacks 
 
 RUN rpm-ostree install \
+        gnome-terminal \
         zsh \
         eza \
         powerline-fonts \
