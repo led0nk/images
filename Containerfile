@@ -1,4 +1,5 @@
 ARG BASE_IMAGE="quay.io/fedora/fedora-silverblue"
+ARG FEDORA_VERSION
 
 FROM $BASE_IMAGE:$FEDORA_VERSION
 
