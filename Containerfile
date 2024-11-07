@@ -1,5 +1,4 @@
 ARG BASE_IMAGE="quay.io/fedora/fedora-silverblue"
-ARG FEDORA_VERSION
 
 FROM $BASE_IMAGE:$FEDORA_VERSION
 
@@ -63,7 +62,7 @@ RUN rpm-ostree install \
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
-COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
+COPY /etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
 ARG XDG_RUNTIME_DIR="/run/user/1001"
 
