@@ -63,7 +63,7 @@ RUN rpm-ostree install \
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
-COPY /etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
+COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
 ARG XDG_RUNTIME_DIR="/run/user/1001"
 
