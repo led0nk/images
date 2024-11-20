@@ -35,6 +35,7 @@ RUN rpm-ostree install  \
         sway \
         swaybg \
         wlogout \
+        wdisplays \
         swaylock \
         swayidle \
         axel \
