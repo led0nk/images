@@ -52,7 +52,8 @@ RUN rpm-ostree install  \
         swappy \
         dunst \
         grim \
-        imv 
+        imv \
+        SwayNotificationCenter
 
 RUN rpm-ostree install \
         restic \
