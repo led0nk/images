@@ -43,7 +43,6 @@ RUN rpm-ostree install  \
         greetd \
         gtkgreet \
         rofi \
-        ulauncher \
         NetworkManager-tui \
         network-manager-applet \
         blueman \
