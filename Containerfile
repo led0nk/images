@@ -47,6 +47,9 @@ RUN rpm-ostree install  \
         NetworkManager-tui \
         network-manager-applet \
         blueman \
+        bluez \
+        bluez-tools \
+        linux-firmware \
         pavucontrol \
         brightnessctl \
         pamixer \
@@ -60,10 +63,8 @@ RUN rpm-ostree install  \
 RUN rpm-ostree install \
         restic \
         ShellCheck \
-        kdeconnectd \
         unrar \
-        unrar-free \
-        mcrcon
+        unrar-free 
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
