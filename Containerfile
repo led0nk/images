@@ -50,6 +50,7 @@ RUN rpm-ostree install  \
         bluez \
         bluez-tools \
         linux-firmware \
+        realtek-firmware \
         pavucontrol \
         brightnessctl \
         pamixer \
