@@ -58,7 +58,8 @@ RUN rpm-ostree install  \
         grim \
         imv \
         SwayNotificationCenter \
-        tailscale
+        tailscale \
+        trayscale
 
 RUN rpm-ostree install \
         restic \
