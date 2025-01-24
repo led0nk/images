@@ -54,7 +54,8 @@ RUN rpm-ostree install  \
         dunst \
         grim \
         imv \
-        SwayNotificationCenter
+        SwayNotificationCenter \
+        tailscale
 
 RUN rpm-ostree install \
         restic \
