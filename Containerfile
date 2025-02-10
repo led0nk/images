@@ -20,6 +20,7 @@ RUN rpm-ostree install \
         bat \
         fd-find \
         tmux \
+        helm \
         neovim 
 
 RUN rpm-ostree install \
