@@ -61,7 +61,8 @@ RUN rpm-ostree install  \
         imv \
         SwayNotificationCenter \
         tailscale \
-        trayscale
+        trayscale \
+        age
 
 RUN rpm-ostree install \
         restic \
