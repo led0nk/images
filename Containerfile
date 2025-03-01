@@ -58,18 +58,18 @@ RUN rpm-ostree install  \
         swappy \
         dunst \
         grim \
-        imv \
-        SwayNotificationCenter \
+        imv 
+
+RUN rpm-ostree install \
         tailscale \
         trayscale \
         age \
-        fuse-sshfs
-
-RUN rpm-ostree install \
+        fuse-sshfs \
         restic \
         ShellCheck \
         unrar \
-        unrar-free 
+        unrar-free \
+        steam
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
