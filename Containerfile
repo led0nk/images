@@ -68,8 +68,7 @@ RUN rpm-ostree install \
         restic \
         ShellCheck \
         unrar \
-        unrar-free \
-        steam
+        unrar-free 
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
