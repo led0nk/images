@@ -21,6 +21,7 @@ RUN rpm-ostree install \
         fd-find \
         tmux \
         helm \
+        python3-pip \
         neovim 
 
 RUN rpm-ostree install \
