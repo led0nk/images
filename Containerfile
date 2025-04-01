@@ -22,6 +22,7 @@ RUN rpm-ostree install \
         tmux \
         helm \
         python3-pip \
+        nmap \
         neovim 
 
 RUN rpm-ostree install \
