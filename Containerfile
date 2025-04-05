@@ -60,17 +60,20 @@ RUN rpm-ostree install  \
         swappy \
         dunst \
         grim \
+        tldr \
         imv 
 
 RUN rpm-ostree install \
         tailscale \
-        trayscale \
         age \
         fuse-sshfs \
         restic \
         ShellCheck \
+        wireshark \
+        openssl \
         unrar \
-        unrar-free 
+        unrar-free \
+        yamllint
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
