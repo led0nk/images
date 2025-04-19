@@ -3,14 +3,14 @@ ARG FEDORA_VERSION
 
 FROM $BASE_IMAGE:$FEDORA_VERSION
 
-RUN rpm-ostree override remove \
-        firefox \
-        firefox-langpacks 
+#RUN rpm-ostree override remove \
+#        firefox \
+#        firefox-langpacks 
 
-RUN rpm-ostree install \
+RUN dnf install -y \
         gnome-terminal \
         zsh \
-        eza \
+       # eza \
         powerline-fonts \
         podman-docker \
         podman-compose \
@@ -25,17 +25,17 @@ RUN rpm-ostree install \
         nmap \
         neovim 
 
-RUN rpm-ostree install \
+RUN dnf install -y \
         goverlay \
         nextcloud-client \
         pam_yubico \
         keepassxc \
         yubikey-personalization-gui 
 
-RUN rpm-ostree install \
+RUN dnf install -y \
         libusb1-devel 
 
-RUN rpm-ostree install  \      
+RUN dnf install -y \      
         sway \
         swaybg \
         wlogout \
@@ -63,7 +63,7 @@ RUN rpm-ostree install  \
         tldr \
         imv 
 
-RUN rpm-ostree install \
+RUN dnf install -y \
         tailscale \
         age \
         fuse-sshfs \
