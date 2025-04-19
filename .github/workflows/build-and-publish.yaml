@@ -16,7 +16,7 @@ jobs:
       packages: write
 
     env:
-      FEDORA_VERSION: "41"
+      FEDORA_VERSION: "42"
 
     steps:
       - name: Checkout code
