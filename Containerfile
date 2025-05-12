@@ -61,7 +61,8 @@ RUN dnf install -y \
         dunst \
         grim \
         tldr \
-        imv 
+        imv \
+        yq
 
 RUN dnf install -y \
         tailscale \
