@@ -74,7 +74,8 @@ RUN dnf install -y \
         openssl \
         unrar \
         unrar-free \
-        yamllint
+        yamllint \
+        git-lfs
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
