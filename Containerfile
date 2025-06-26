@@ -23,7 +23,8 @@ RUN dnf install -y \
         helm \
         python3-pip \
         nmap \
-        neovim 
+        neovim \
+        pprof
 
 RUN dnf install -y \
         goverlay \
