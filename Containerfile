@@ -76,7 +76,8 @@ RUN dnf install -y \
         unrar \
         unrar-free \
         yamllint \
-        git-lfs
+        git-lfs \
+        gh
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
