@@ -65,11 +65,6 @@ RUN dnf install -y \
         imv \
         yq
 
-COPY etc/yum.repos.d/google-chrome.repo /etc/yum.repos.d/google-chrome.repo
-
-RUN rpm --import https://dl.google.com/linux/linux_signing_key.pub
-
-
 RUN dnf install -y \
         tailscale \
         age \
@@ -82,8 +77,7 @@ RUN dnf install -y \
         unrar-free \
         yamllint \
         git-lfs \
-        gh \
-        google-chrome-stable.x86_64
+        gh 
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
