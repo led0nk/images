@@ -77,7 +77,8 @@ RUN dnf install -y \
         unrar-free \
         yamllint \
         git-lfs \
-        gh
+        gh \
+        google-chrome-stable.x86_64
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
