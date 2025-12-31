@@ -78,7 +78,8 @@ RUN dnf install -y \
         yamllint \
         git-lfs \
         gh \
-        lxpolkit.x86_64
+        lxpolkit.x86_64 \
+        rclone
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
