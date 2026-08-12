@@ -83,6 +83,18 @@ RUN dnf install -y \
 
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
+COPY etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
+COPY etc/yum.repos.d/bitwarden.repo /etc/yum.repos.d/bitwarden.repo
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
+
+# Bitwarden installs into /opt, which on ostree is a symlink to /var/opt and gets
+# dropped at commit time, so relocate it into /usr/lib and repoint the launcher.
+RUN mkdir -p /var/opt/Bitwarden && \
+    dnf install -y bitwarden && \
+    mv /var/opt/Bitwarden /usr/lib/bitwarden && \
+    sed -i 's|/opt/Bitwarden/bitwarden|/usr/lib/bitwarden/bitwarden|' /usr/share/applications/bitwarden.desktop && \
+    ln -s /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden
+
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
 ARG XDG_RUNTIME_DIR="/run/user/1001"
