@@ -58,7 +58,9 @@ RUN dnf install -y \
         brightnessctl \
         pamixer \
         swappy \
+        clipman \
         dunst \
+        SwayNotificationCenter \
         grim \
         slurp \
         grimshot \
