@@ -37,7 +37,6 @@ jobs:
           build-args: |
             BASE_IMAGE=quay.io/fedora/fedora-silverblue
             FEDORA_VERSION=${{ env.FEDORA_VERSION }}
-            XDG_RUNTIME_DIR=/run/user/1001
 
       - name: Lowercase Registry
         id: registry_case

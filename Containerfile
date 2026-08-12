@@ -10,7 +10,7 @@ FROM $BASE_IMAGE:$FEDORA_VERSION
 RUN dnf install -y \
         gnome-terminal \
         zsh \
-       # eza \
+        eza \
         powerline-fonts \
         podman-docker \
         podman-compose \
@@ -30,40 +30,44 @@ RUN dnf install -y \
         goverlay \
         nextcloud-client \
         pam_yubico \
+        pam-u2f \
+        yubikey-manager \
         keepassxc \
-        yubikey-personalization-gui 
+        yubikey-personalization-gui
 
 RUN dnf install -y \
         libusb1-devel 
 
-RUN dnf install -y \      
+RUN dnf install -y \
         sway \
         swaybg \
+        kanshi \
         wlogout \
         wdisplays \
         swaylock \
         swayidle \
         axel \
         waybar \
-        greetd \
-        gtkgreet \
         rofi \
         NetworkManager-tui \
         network-manager-applet \
         blueman \
         bluez \
         bluez-tools \
-        linux-firmware \
-        realtek-firmware \
         pavucontrol \
         brightnessctl \
         pamixer \
         swappy \
         dunst \
         grim \
+        slurp \
+        grimshot \
         tldr \
         imv \
         yq
+
+# Enabled image-wide so a fresh user gets dock/undock handling without setup.
+RUN systemctl --global enable kanshi.service
 
 RUN dnf install -y \
         tailscale \
@@ -81,6 +85,18 @@ RUN dnf install -y \
         lxpolkit.x86_64 \
         rclone
 
+RUN systemctl enable tailscaled
+
+RUN dnf install -y \
+        powertop \
+        lm_sensors \
+        smartmontools \
+        libinput-utils \
+        lshw \
+        v4l-utils \
+        wf-recorder \
+        gammastep
+
 #RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
 
 COPY etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
@@ -97,7 +113,10 @@ RUN mkdir -p /var/opt/Bitwarden && \
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
-ARG XDG_RUNTIME_DIR="/run/user/1001"
+COPY etc/udev/rules.d/99-battery-charge-threshold.rules /etc/udev/rules.d/99-battery-charge-threshold.rules
 
-RUN mkdir -p /var/run && \
-    ln -s ${XDG_RUNTIME_DIR}/podman/podman.sock /var/run/docker.sock
+# podman-docker already ships the docker.sock symlink (tmpfiles.d, %t-relative)
+# and DOCKER_HOST via profile.d, so no manual symlink is needed here.
+RUN systemctl --global enable podman.socket
+
+RUN bootc container lint

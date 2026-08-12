@@ -1,0 +1,4 @@
+# Cap charging to extend battery lifespan on hardware that supports it
+# (thinkpad_acpi). The attribute match makes this a no-op elsewhere.
+# ACTION=="add" only, so a later manual or GNOME change is not overridden.
+ACTION=="add", SUBSYSTEM=="power_supply", ATTR{type}=="Battery", ATTR{charge_control_end_threshold}=="?*", ATTR{charge_control_start_threshold}="75", ATTR{charge_control_end_threshold}="80"
