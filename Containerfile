@@ -93,7 +93,7 @@ RUN mkdir -p /var/opt/Bitwarden && \
     dnf install -y bitwarden && \
     mv /var/opt/Bitwarden /usr/lib/bitwarden && \
     sed -i 's|/opt/Bitwarden/bitwarden|/usr/lib/bitwarden/bitwarden|' /usr/share/applications/bitwarden.desktop && \
-    ln -s /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden
+    ln -sf /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
