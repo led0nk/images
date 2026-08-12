@@ -36,6 +36,11 @@ install_git_repo() {
 	repo=$1
 	target=$2
 
+	if [ -d "$target/.git" ]; then
+		echo "$target already cloned, skipping"
+		return
+	fi
+
 	echo "cloning $repo into $target"
 	git clone "$GITHUB/$repo" "$target" && echo "cloning of $repo done"|| abort_func "$repo"
 }
@@ -52,7 +57,8 @@ rm -rf "$HOME"/.zshrc
 # create directories
 mkdir -p "$HOME"/.config/{swappy,sway,waybar,rofi,dunst,mako,swaync,swaylock,tmux,environment.d}
 mkdir -p "$HOME"/Pictures/{Wallpaper,Screenshots}
-mkdir -p -m 700 "$HOME"/.ssh
+mkdir -p "$HOME"/.ssh
+chmod 700 "$HOME"/.ssh
 
 # clone GitHub repositories
 install_git_repo dotfiles.git "$DOT_PATH" 
@@ -84,38 +90,18 @@ symlink "$DOT_PATH"/.config/swaylock/config "$HOME"/.config/swaylock/config
 symlink "$DOT_PATH"/.config/tmux/tmux.conf "$HOME"/.config/tmux/tmux.conf
 symlink "$DOT_PATH"/.config/rofi/config.rasi "$HOME"/.config/rofi/config.rasi
 symlink "$DOT_PATH"/.config/environment.d/10-ssh-auth-sock.conf "$HOME"/.config/environment.d/10-ssh-auth-sock.conf
+symlink "$DOT_PATH"/.config/environment.d/20-xdg-screenshots.conf "$HOME"/.config/environment.d/20-xdg-screenshots.conf
 
 # copy themefiles and background
 mkdir -p "$HOME"/.config/rofi/themes
 cp -r "$DOT_PATH"/.config/rofi/themes/. "$HOME"/.config/rofi/themes/ || abort_func "copying rofi themes"
 cp "$DOT_PATH"/background.png "$HOME"/Pictures/Wallpaper/background.png || abort_func "copying wallpaper"
 
-# link golang variable
-echo export PATH="$PATH":/usr/lib/golang/bin >>"$HOME"/.profile
 
 # install zplug + extensions + change shell to zsh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 chsh -s /usr/bin/zsh
-zsh
-zplug install
+zsh -ic "zplug install"
 
-while getopts 'ynh' OPTION; do
-	case "$OPTION" in
-	y)
-		sudo cp -r "$DOT_PATH"/etc/systemd/system/dotfile.service /etc/systemd/system/dotfile.service
-		sudo chmod +x /etc/systemd/system/dotfile.service
-		;;
-	h)
-		echo "install-dotfiles.sh [-y] [-h help]"
-		echo "[-y]  -   includes systemd-service for automatic dotfiles-update at startup"
-		echo "[-n]  -   excludes systemd-service for automatic dotfiles-update at startup"
-		;;
-	?)
-		echo "install-dotfiles.sh [-y] [-n] [-h help]"
-		exit 1
-		;;
-	esac
-done
-shift "(($OPTION - 1))"
 
 sudo rm -rf /etc/profile.d/post-install.sh
