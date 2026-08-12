@@ -66,6 +66,7 @@ RUN dnf install -y \
         grimshot \
         tldr \
         imv \
+        mpv \
         yq
 
 # Enabled image-wide so a fresh user gets dock/undock handling without setup.
