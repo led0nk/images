@@ -44,6 +44,7 @@ RUN dnf install -y \
         kanshi \
         wlogout \
         wdisplays \
+        wl-mirror \
         swaylock \
         swayidle \
         axel \
