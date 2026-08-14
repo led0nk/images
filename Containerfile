@@ -101,8 +101,6 @@ RUN dnf install -y \
         wf-recorder \
         gammastep
 
-#RUN ln -s /usr/bin/ld.bfd /usr/bin/ld
-
 COPY etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
 COPY etc/yum.repos.d/bitwarden.repo /etc/yum.repos.d/bitwarden.repo
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
@@ -113,7 +111,8 @@ RUN mkdir -p /var/opt/Bitwarden && \
     dnf install -y bitwarden && \
     mv /var/opt/Bitwarden /usr/lib/bitwarden && \
     sed -i 's|/opt/Bitwarden/bitwarden|/usr/lib/bitwarden/bitwarden|' /usr/share/applications/bitwarden.desktop && \
-    ln -sf /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden
+    ln -sf /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden && \
+    rmdir /var/opt
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
