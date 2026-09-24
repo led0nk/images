@@ -17,11 +17,14 @@ RUN dnf install -y \
         ripgrep \
         htop \
         fzf \
+        navi \
         bat \
         fd-find \
         tmux \
         helm \
         python3-pip \
+        nodejs22 \
+        nodejs22-npm \
         nmap \
         neovim \
         pprof
