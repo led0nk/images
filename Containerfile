@@ -104,18 +104,9 @@ RUN dnf install -y \
         wf-recorder \
         gammastep
 
-COPY etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
-COPY etc/yum.repos.d/bitwarden.repo /etc/yum.repos.d/bitwarden.repo
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-bitwarden
-
-# Bitwarden installs into /opt, which on ostree is a symlink to /var/opt and gets
-# dropped at commit time, so relocate it into /usr/lib and repoint the launcher.
-RUN mkdir -p /var/opt/Bitwarden && \
-    dnf install -y bitwarden && \
-    mv /var/opt/Bitwarden /usr/lib/bitwarden && \
-    sed -i 's|/opt/Bitwarden/bitwarden|/usr/lib/bitwarden/bitwarden|' /usr/share/applications/bitwarden.desktop && \
-    ln -sf /usr/lib/bitwarden/bitwarden /usr/bin/bitwarden && \
-    rmdir /var/opt
+# Bitwarden comes from Flathub (com.bitwarden.desktop), not from the Cloudsmith
+# RPM repo: that repo last published 1.25.0 in March 2021, and a client that old
+# cannot derive an Argon2id master key, so every login fails as a wrong password.
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
