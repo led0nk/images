@@ -5,10 +5,13 @@ FROM $BASE_IMAGE:$FEDORA_VERSION
 
 #RUN rpm-ostree override remove \
 #        firefox \
-#        firefox-langpacks 
+#        firefox-langpacks
+
+COPY etc/yum.repos.d/ghostty.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
         gnome-terminal \
+        ghostty \
         zsh \
         eza \
         powerline-fonts \
