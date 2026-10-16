@@ -53,9 +53,6 @@ RUN dnf install -y \
         wlogout \
         wdisplays \
         wl-mirror \
-        hyprland \
-        hyprlock \
-        hypridle \
         swaylock \
         swayidle \
         axel \
@@ -80,6 +77,14 @@ RUN dnf install -y \
         imv \
         mpv \
         yq
+
+RUN dnf install -y \
+        hyprland \
+        hyprlock \
+        hypridle \
+        hyprland-guiutils \
+        xdg-desktop-portal-hyprland \
+        hyprpolkitagent
 
 # Enabled image-wide so a fresh user gets dock/undock handling without setup.
 RUN systemctl --global enable kanshi.service
