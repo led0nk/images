@@ -84,7 +84,8 @@ RUN dnf install -y \
         hypridle \
         hyprland-guiutils \
         xdg-desktop-portal-hyprland \
-        hyprpolkitagent
+        hyprpolkitagent \
+        hyprshot
 
 # Enabled image-wide so a fresh user gets dock/undock handling without setup.
 RUN systemctl --global enable kanshi.service
