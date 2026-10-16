@@ -1,0 +1,10 @@
+[copr:copr.fedorainfracloud.org:nett00n:hyprland]
+name=Copr repo for hyprland owned by nett00n
+baseurl=https://download.copr.fedorainfracloud.org/results/nett00n/hyprland/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/nett00n/hyprland/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1

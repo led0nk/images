@@ -8,6 +8,7 @@ FROM $BASE_IMAGE:$FEDORA_VERSION
 #        firefox-langpacks
 
 COPY etc/yum.repos.d/ghostty.repo /etc/yum.repos.d/
+COPY etc/yum.repos.d/hyprland.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
         gnome-terminal \
@@ -51,6 +52,9 @@ RUN dnf install -y \
         wlogout \
         wdisplays \
         wl-mirror \
+        hyprland \
+        hyprlock \
+        hypridle \
         swaylock \
         swayidle \
         axel \
