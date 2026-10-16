@@ -30,6 +30,7 @@ RUN dnf install -y \
         nodejs22 \
         nodejs22-npm \
         nmap \
+        zoxide \
         neovim \
         pprof
 
