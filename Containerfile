@@ -9,6 +9,7 @@ FROM $BASE_IMAGE:$FEDORA_VERSION
 
 COPY etc/yum.repos.d/ghostty.repo /etc/yum.repos.d/
 COPY etc/yum.repos.d/hyprland.repo /etc/yum.repos.d/
+COPY etc/yum.repos.d/swayfx.repo /etc/yum.repos.d/
 
 RUN dnf install -y \
         gnome-terminal \
@@ -46,8 +47,10 @@ RUN dnf install -y \
 RUN dnf install -y \
         libusb1-devel 
 
+# swayfx is a drop-in sway fork (same binary name, same config); it carries
+# the blur commands. Obsoletes sway, so this replaces it in the transaction.
 RUN dnf install -y \
-        sway \
+        swayfx \
         swaybg \
         kanshi \
         wlogout \

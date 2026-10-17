@@ -1,0 +1,12 @@
+[COPR-swayfx]
+name=COPR swayfx
+baseurl=https://download.copr.fedorainfracloud.org/results/swayfx/swayfx/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=False
+metadata_expire=30d
+enabled=1
+enabled_metadata=1
+repo_gpgcheck=0
+gpgcheck=1
+priority=50
+gpgkey=https://download.copr.fedorainfracloud.org/results/swayfx/swayfx/pubkey.gpg
