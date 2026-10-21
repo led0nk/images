@@ -107,6 +107,7 @@ RUN dnf install -y \
         git-lfs \
         gh \
         lxpolkit.x86_64 \
+        protobuf-compiler \
         rclone
 
 RUN systemctl enable tailscaled
@@ -127,7 +128,6 @@ RUN dnf install -y \
 
 COPY etc/rpm-ostreed.conf /etc/rpm-ostreed.conf
 
-COPY etc/udev/rules.d/99-battery-charge-threshold.rules /etc/udev/rules.d/99-battery-charge-threshold.rules
 
 # podman-docker already ships the docker.sock symlink (tmpfiles.d, %t-relative)
 # and DOCKER_HOST via profile.d, so no manual symlink is needed here.
